@@ -28,7 +28,7 @@
         <module>postCommentService</module>
         <module>userService</module>
         <module>config-server</module>
-
+        <module>clientService</module>
 
     </modules>
     <build>

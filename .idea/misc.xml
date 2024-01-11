@@ -8,11 +8,14 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/userService/pom.xml" />
         <option value="$PROJECT_DIR$/PostCommnentService/pom.xml" />
+        <option value="$PROJECT_DIR$/FeignClient/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/FeignClient/pom.xml" />
         <option value="$PROJECT_DIR$/UserService/pom.xml" />
+        <option value="$PROJECT_DIR$/clientService/pom.xml" />
         <option value="$PROJECT_DIR$/service1/pom.xml" />
         <option value="$PROJECT_DIR$/usersService/pom.xml" />
       </set>

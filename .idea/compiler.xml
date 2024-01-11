@@ -15,6 +15,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="clientService" target="17" />
+      <module name="FeignClient" target="17" />
       <module name="PostCommentService" target="1.5" />
       <module name="ResFulService (2)" target="17" />
       <module name="service1" target="17" />
@@ -22,7 +24,9 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="FeignClient" options="-parameters" />
       <module name="ResFulService (2)" options="-parameters" />
+      <module name="clientService" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="eurekaServer" options="-parameters" />
       <module name="gateway" options="-parameters" />
