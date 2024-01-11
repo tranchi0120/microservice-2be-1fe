@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.title {
+    color: orange;
+    padding-bottom: 20px;
+}
+
+.icon-delete {
+    color: red;
+}
+
+
+.group {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border: none;
+    margin-top: 60px;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-add {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+.action {
+    display: flex;
+    gap: 20px;
+}
+
+a {
+    color: #ffffff !important;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: greenyellow;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+}
+
+.icons-edit {
+    background: #007bff;
+}
+
+.icons-delete {
+    background: #dc3545;
+}
+
+
+.bg {
+    background: gray;
+}
+
+.selected {
+    width: 45%;
+    padding: 3px;
+    border: 0.5px solid #a99494;
+    border-radius: 5px;
+    outline: #007bff;
+}
+
+.group-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

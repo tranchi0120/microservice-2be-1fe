@@ -9,13 +9,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="config-server" />
         <module name="postCommentService" />
+        <module name="clientService" />
         <module name="eurekaServer" />
         <module name="gateway" />
         <module name="userService" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="clientService" target="17" />
       <module name="FeignClient" target="17" />
       <module name="PostCommentService" target="1.5" />
       <module name="ResFulService (2)" target="17" />
