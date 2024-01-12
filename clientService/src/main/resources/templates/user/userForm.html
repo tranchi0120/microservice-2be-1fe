@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>User List</title>
 
     <!--link css-->
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" th:href="@{/styles/style.css}">
 
     <!--link jquery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -44,35 +44,33 @@
 </nav>
 
 <div class="container">
+    <div>
+        <form method="POST"
+              th:action="${userForm.id == null ? '/product/addUser' : '/product/update/' + userForm.id}"
+              th:object="${userForm}">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
 
-    <form th:action="@{/product/listUser}" th:object="${newUser}" method="post">
-
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Add User</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="inputUsername">User Name</label>
-                        <input type="text" class="form-control" id="inputUsername" aria-describedby="emailHelp"
-                               placeholder="User Name" th:field="*{username}" required>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="inputUsername">User Name</label>
+                            <input type="text" class="form-control" id="inputUsername" aria-describedby="emailHelp"
+                                   placeholder="User Name" th:field="*{username}"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail">Email</label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="email"
+                                   th:field="*{email}"   required>
+                            <small id="emailError" class="text-danger"></small>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="inputEmail">Email</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="email" th:field="*{email}" required>
-                        <small id="emailError" class="text-danger"></small>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="btnSave">Save</button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" id="btnSave">Save</button>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 
 </body>
