@@ -27,7 +27,7 @@
         <module>eurekaServer</module>
         <module>postCommentService</module>
         <module>userService</module>
-        <module>config-server</module>
+        <module>configServer</module>
         <module>clientService</module>
     </modules>
     <build>
