@@ -12,8 +12,9 @@ public class Comment {
 
     private String content;
 
-
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "post_id")
     private Post post;
+
+    private Long user_id;
 }

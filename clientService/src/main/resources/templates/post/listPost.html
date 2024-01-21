@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>User List</title>
-
+    <meta charset="UTF-8">
+    <title>List User</title>
     <!--link css-->
-    <link rel="stylesheet" th:href="@{/css/style.css}">
 
+    <link th:href="@{/css/style.css}" rel="stylesheet" >
     <!--link jquery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!--bootstrap -->
+<!--    bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
           integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
+
+
     <!--icons-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+            rel="stylesheet"
+    />
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg">
@@ -44,34 +49,37 @@
 </nav>
 
 <div class="container">
-    <div>
-        <form method="POST"
-              th:action="${userForm.id == null ? '/product/addUser' : '/product/update/' + userForm.id}"
-              th:object="${userForm}">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <h2 class="title-comment" th:text="${userForm.id == null ? 'Add User' : 'Edit User'}"></h2>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="inputUsername">User Name</label>
-                            <input type="text" class="form-control" id="inputUsername" aria-describedby="emailHelp"
-                                   placeholder="User Name" th:field="*{username}"  required>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail">Email</label>
-                            <input type="email" class="form-control" id="inputEmail" placeholder="email"
-                                   th:field="*{email}"   required>
-                            <small id="emailError" class="text-danger"></small>
-                        </div>
+    <div class="group">
+        <div class="header-top">
+            <h1 class="title"> LIST POST</h1>
+            <a th:href="@{/product/getPost}" type="button" class="btn-add btn btn-primary"><i
+                    class="icon-add ri-add-line"></i></a>
+        </div>
+        <table id="userTable" class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+                <th scope="col">Handle</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="post, ind : ${posts}">
+                <td th:text="${ind.index + 1}"></td>
+                <td th:text="${post.title}"></td>
+                <td th:text="${post.content}"></td>
+                <td>
+                    <div class="handle">
+                    <a class="icons icons-edit" th:href="@{/product/editPost/{id}(id=${post.id})}"><i
+                            class='ri-pencil-line'></i></a>
+                    <a class="icons icons-delete" th:href="@{/product/deletePost/{id}(id=${post.id})}"><i class="ri-delete-bin-7-line"></i></a>
                     </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" id="btnSave">Save</button>
-                    </div>
-                </div>
-            </div>
-        </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
-
 </body>
 </html>

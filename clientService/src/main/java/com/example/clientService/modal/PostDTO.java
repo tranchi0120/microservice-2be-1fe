@@ -3,9 +3,8 @@ package com.example.clientService.modal;
 import lombok.Data;
 
 @Data
-
-public class UserDTO {
+public class PostDTO {
     private Long id;
-    private String username;
-    private String email;
+    private String title;
+    private String content;
 }

@@ -6,7 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.0.6</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <groupId>com.duytran</groupId>
@@ -29,7 +29,6 @@
         <module>userService</module>
         <module>config-server</module>
         <module>clientService</module>
-
     </modules>
     <build>
         <plugins>

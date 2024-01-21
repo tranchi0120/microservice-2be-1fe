@@ -83,3 +83,13 @@ a {
     flex-direction: column;
     gap: 10px;
 }
+
+.handle{
+    display: flex;
+    gap: 10px;
+}
+
+.title-comment{
+    color: orange;
+    padding: 10px;
+}

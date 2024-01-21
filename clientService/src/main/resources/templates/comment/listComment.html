@@ -35,7 +35,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item" >
+            <li class="nav-item active">
                 <a class="nav-link" href="/product/listUser">User <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
@@ -51,34 +51,36 @@
 <div class="container">
     <div class="group">
         <div class="header-top">
-            <h1 class="title"> LIST USER</h1>
-            <a th:href="@{/product/getUser}" type="button" class="btn-add btn btn-primary"><i
+            <h1 class="title"> LIST Comment</h1>
+            <a th:href="@{/product/getComment}" type="button" class="btn-add btn btn-primary"><i
                     class="icon-add ri-add-line"></i></a>
         </div>
         <table id="userTable" class="table">
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">User Name</th>
-                <th scope="col">Email</th>
+                <th scope="col">Title Post</th>
+                <th scope="col">Comment</th>
                 <th scope="col">Handle</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="user,ind : ${users}">
-                <td th:text="${ind.index + 1}"></td>
-                <td th:text="${user.username}"></td>
-                <td th:text="${user.email}"></td>
+            <tr th:each="comment, stat : ${comments}">
+                <td th:text="${stat.index + 1}"></td>
+                <td th:text="${comment.post.title}"></td>
+                <td th:text="${comment.content}"></td>
+
                 <td>
-                    <a class="icons icons-edit" th:href="@{/product/edit/{id}(id=${user.id})}"><i
-                            class='ri-pencil-line'></i></a>
+                   <div class="handle">
+                       <a class="icons icons-edit" th:href="@{/product/editComment/{id}(id=${comment.id})}"><i
+                               class='ri-pencil-line'></i></a>
+                       <a class="icons icons-delete" th:href="@{/product/deleteComment/{id}(id=${comment.id})}"><i class="ri-delete-bin-7-line"></i></a>
+                   </div>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
-
-
 </div>
 </body>
 </html>

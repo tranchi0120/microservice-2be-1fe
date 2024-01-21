@@ -17,7 +17,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping()
+    @GetMapping("/listUser")
     public String listUser(Model model, @ModelAttribute("userForm") UserDTO userForm) {
         List<UserDTO> users = userService.getAllUser();
         model.addAttribute("users", users);
@@ -31,18 +31,11 @@ public class UserController {
         return "user/userForm";
     }
 
-//    @PostMapping("/addUser/{id}")
-//    public String AddUserForm(@PathVariable("id") Long id, @ModelAttribute("userForm") UserDTO userForm, Model model) {
-//        userService.addUser(id, userForm);
-//        model.addAttribute("userForm", userForm);
-//        return "redirect:/product";
-//    }
-
     @PostMapping("/addUser")
     public String AddUserForm( @ModelAttribute("userForm") UserDTO userForm, Model model) {
         userService.addUser( userForm);
         model.addAttribute("userForm", userForm);
-        return "redirect:/product";
+        return "redirect:/product/listUser";
     }
 
     @GetMapping("/edit/{id}")
@@ -55,7 +48,7 @@ public class UserController {
     @PostMapping("/update/{id}")
     public String updateForm(@PathVariable Long id, @ModelAttribute("userForm") UserDTO userForm) {
         userService.updateUser(id, userForm);
-        return "redirect:/product";
+        return "redirect:/product/listUser";
     }
 
 

@@ -46,23 +46,26 @@
 <div class="container">
     <div>
         <form method="POST"
-              th:action="${userForm.id == null ? '/product/addUser' : '/product/update/' + userForm.id}"
-              th:object="${userForm}">
+              th:action="${commentForm.id == null ? '/product/addComment' : '/product/updateComment/' + commentForm.id}"
+              th:object="${commentForm}">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <h2 class="title-comment" th:text="${userForm.id == null ? 'Add User' : 'Edit User'}"></h2>
+                    <h2 class="title-comment" th:text="${commentForm.id == null ? 'Add Comment' : 'Edit Comment'}"></h2>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="inputUsername">User Name</label>
-                            <input type="text" class="form-control" id="inputUsername" aria-describedby="emailHelp"
-                                   placeholder="User Name" th:field="*{username}"  required>
+                            <label for="inputEmail">Comment</label>
+                            <input type="text" class="form-control" id="inputEmail" placeholder="Content"
+                                   th:field="*{content}" required>
                         </div>
-                        <div class="form-group">
-                            <label for="inputEmail">Email</label>
-                            <input type="email" class="form-control" id="inputEmail" placeholder="email"
-                                   th:field="*{email}"   required>
-                            <small id="emailError" class="text-danger"></small>
+
+                        <div class="form-group" th:if="${commentForm.id == null}">
+                            <label for="selectUser">Select Post</label>
+                            <select class="form-select selected" aria-label="Default select example" id="selectUser" required="required" th:field="*{post.id}">
+                                <option th:each="post : ${postFormList}" th:value="${post.id}" th:text="${post.title}">---lựa chọn bài viết---</option>
+                            </select>
                         </div>
+
+
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary" id="btnSave">Save</button>
