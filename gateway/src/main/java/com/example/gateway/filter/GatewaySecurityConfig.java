@@ -18,12 +18,14 @@ public class GatewaySecurityConfig {
                         .pathMatchers(HttpMethod.GET, "/api/users","/api/posts","/api/comments").permitAll()
                         .pathMatchers(HttpMethod.GET, "/api/users/{id}","/api/posts/{id}","/api/comments/{id}").permitAll()
                         .pathMatchers(HttpMethod.POST, "/api/users/addUser","/api/posts/addPost", "/api/comments/addComment").permitAll()
-                        .pathMatchers(HttpMethod.PUT, "/api/users/update/{id}","/api/posts/update/{id}", "/api/comments/{id}").permitAll()
-                        .pathMatchers(HttpMethod.DELETE, "/api/users/delete/{id}", "/api/posts/delete/{id}", "/api/posts/delete/{id}").permitAll()
-                        .pathMatchers("/api/users/**","/api/posts/**","/api/comments/**").denyAll()
+                        .pathMatchers(HttpMethod.PUT, "/api/users/update/{id}", "/api/posts/update/{id}", "/api/comments/update/{id}").permitAll()
+                        .pathMatchers(HttpMethod.DELETE, "/api/users/delete/{id}", "/api/posts/delete/{id}", "/api/comments/delete/{id}").permitAll()
+                        .pathMatchers("/product/**").permitAll()
                         .anyExchange().authenticated()
                 )
-                .csrf(ServerHttpSecurity.CsrfSpec::disable);
+                .csrf(ServerHttpSecurity.CsrfSpec::disable)
+                .httpBasic(ServerHttpSecurity.HttpBasicSpec::disable);
         return http.build();
     }
+
 }

@@ -24,8 +24,8 @@
 
     <modules>
         <module>gateway</module>
-        <module>eurekaServer</module>
         <module>postCommentService</module>
+        <module>eurekaServer</module>
         <module>userService</module>
         <module>configServer</module>
         <module>clientService</module>

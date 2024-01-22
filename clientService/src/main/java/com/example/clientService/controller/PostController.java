@@ -1,7 +1,9 @@
 package com.example.clientService.controller;
 
 import com.example.clientService.modal.PostDTO;
+import com.example.clientService.modal.UserDTO;
 import com.example.clientService.service.PostService;
+import com.example.clientService.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +17,14 @@ public class PostController {
     @Autowired
     PostService postService;
 
+    @Autowired
+    UserService userService;
+
 
     @GetMapping("/listPost")
     public String listPost(Model model) {
         List<PostDTO> posts = postService.getAllPost();
+        System.out.println("posts: "+posts);
         model.addAttribute("posts", posts);
         return "post/listPost";
     }
@@ -26,14 +32,21 @@ public class PostController {
     @GetMapping("/getPost")
     public String getPost(Model model) {
         PostDTO postForm = new PostDTO();
+        List<UserDTO> userForm = userService.getAllUser();
+        System.out.println("userForm: "+userForm);
         model.addAttribute("postForm", postForm);
+        model.addAttribute("userForm", userForm);
         return "post/postForm";
     }
 
     @PostMapping("/addPost")
-    public String addPostForm( @ModelAttribute("postForm") PostDTO postForm, Model model) {
+    public String addPostForm(@ModelAttribute("postForm") PostDTO postForm,
+                              Model model,
+                              @ModelAttribute("userForm") UserDTO userForm) {
         postService.addPost(postForm);
+        System.out.println("userID:"+userForm);
         model.addAttribute("postForm", postForm);
+        model.addAttribute("userForm", userForm);
         return "redirect:/product/listPost";
     }
 

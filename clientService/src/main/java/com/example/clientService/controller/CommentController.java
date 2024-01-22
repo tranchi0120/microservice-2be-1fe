@@ -2,8 +2,10 @@ package com.example.clientService.controller;
 
 import com.example.clientService.modal.CommentDTO;
 import com.example.clientService.modal.PostDTO;
+import com.example.clientService.modal.UserDTO;
 import com.example.clientService.service.CommentService;
 import com.example.clientService.service.PostService;
+import com.example.clientService.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,9 @@ public class CommentController {
     @Autowired
     PostService postService;
 
+    @Autowired
+    UserService userService;
+
 
     @GetMapping("/listComment")
     public String listComment(Model model) {
@@ -33,8 +38,10 @@ public class CommentController {
     public String getComment(Model model) {
         CommentDTO commentForm = new CommentDTO();
         List<PostDTO> postFormList = postService.getAllPost();
+        List<UserDTO> userFormList = userService.getAllUser();
         model.addAttribute("commentForm", commentForm);
         model.addAttribute("postFormList", postFormList);
+        model.addAttribute("userFormList", userFormList);
         return "comment/commentForm";
     }
 
@@ -42,10 +49,12 @@ public class CommentController {
     @PostMapping("/addComment")
     public String addCommentForm(@ModelAttribute("postForm") CommentDTO commentForm,
                                  @ModelAttribute("postFormList") PostDTO postFormList,
+                                 @ModelAttribute("userFormList") UserDTO userFormList,
                                  Model model) {
         commentService.addComment(commentForm);
         model.addAttribute("commentForm", commentForm);
         model.addAttribute("postFormList", postFormList);
+        model.addAttribute("userFormList", userFormList);
         return "redirect:/product/listComment";
     }
 

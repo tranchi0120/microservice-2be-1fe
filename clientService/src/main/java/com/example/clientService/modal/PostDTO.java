@@ -7,4 +7,5 @@ public class PostDTO {
     private Long id;
     private String title;
     private String content;
+    private Long user_id;
 }

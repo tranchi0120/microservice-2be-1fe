@@ -61,6 +61,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Title Post</th>
                 <th scope="col">Comment</th>
+                <th scope="col">User</th>
                 <th scope="col">Handle</th>
             </tr>
             </thead>
@@ -69,6 +70,7 @@
                 <td th:text="${stat.index + 1}"></td>
                 <td th:text="${comment.post.title}"></td>
                 <td th:text="${comment.content}"></td>
+                <td th:text="${comment.user_id}"></td>
 
                 <td>
                    <div class="handle">

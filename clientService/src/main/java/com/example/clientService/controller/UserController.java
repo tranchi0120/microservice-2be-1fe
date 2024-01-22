@@ -46,10 +46,9 @@ public class UserController {
     }
 
     @PostMapping("/update/{id}")
-    public String updateForm(@PathVariable Long id, @ModelAttribute("userForm") UserDTO userForm) {
+    public String updateForm(@PathVariable Long id,
+                             @ModelAttribute("userForm") UserDTO userForm) {
         userService.updateUser(id, userForm);
         return "redirect:/product/listUser";
     }
-
-
 }

@@ -11,13 +11,13 @@ import java.util.List;
 public class PostService {
     @Autowired
     ProductAPI productAPI;
-    
+
     public List<PostDTO> getAllPost() {
         return productAPI.getPost();
     }
 
     public void addPost(PostDTO post) {
-        productAPI.addPost(post);
+        PostDTO addedPost = productAPI.addPost(post);
     }
 
     public PostDTO getPostId(Long postId) {
@@ -34,7 +34,7 @@ public class PostService {
         productAPI.updatePost(id, updatedPost);
     }
 
-    public void deletePost(Long id){
+    public void deletePost(Long id) {
         productAPI.deletePost(id);
     }
 }

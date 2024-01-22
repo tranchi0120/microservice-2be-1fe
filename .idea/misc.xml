@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/PostCommnentService/pom.xml" />
         <option value="$PROJECT_DIR$/FeignClient/pom.xml" />
         <option value="$PROJECT_DIR$/clientService/pom.xml" />
+        <option value="$PROJECT_DIR$/eurekaServer/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

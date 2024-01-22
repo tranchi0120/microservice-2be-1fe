@@ -57,15 +57,19 @@
                             <input type="text" class="form-control" id="inputEmail" placeholder="Content"
                                    th:field="*{content}" required>
                         </div>
-
                         <div class="form-group" th:if="${commentForm.id == null}">
                             <label for="selectUser">Select Post</label>
-                            <select class="form-select selected" aria-label="Default select example" id="selectUser" required="required" th:field="*{post.id}">
+                            <select class="form-select selected" aria-label="Default select example" id="selectPost" required="required" th:field="*{post.id}">
                                 <option th:each="post : ${postFormList}" th:value="${post.id}" th:text="${post.title}">---lựa chọn bài viết---</option>
                             </select>
                         </div>
 
-
+                        <div class="form-group" th:if="${commentForm.id == null}">
+                            <label for="selectUser">Select Post</label>
+                            <select class="form-select selected" aria-label="Default select example" id="selectUser" required="required" th:field="*{user_id}">
+                                <option th:each="user : ${userFormList}" th:value="${user.id}" th:text="${user.id}">--- Select User ---</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary" id="btnSave">Save</button>

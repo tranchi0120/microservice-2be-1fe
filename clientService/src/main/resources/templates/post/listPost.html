@@ -61,6 +61,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Content</th>
+                <th scope="col">UserId</th>
                 <th scope="col">Handle</th>
             </tr>
             </thead>
@@ -69,6 +70,7 @@
                 <td th:text="${ind.index + 1}"></td>
                 <td th:text="${post.title}"></td>
                 <td th:text="${post.content}"></td>
+                <td th:text="${post.user_id}"></td>
                 <td>
                     <div class="handle">
                     <a class="icons icons-edit" th:href="@{/product/editPost/{id}(id=${post.id})}"><i

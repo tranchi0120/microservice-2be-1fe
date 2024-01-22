@@ -35,7 +35,7 @@ public interface ProductAPI {
     @PutMapping("/posts/update/{id}")
     PostDTO updatePost(@PathVariable Long id, @RequestBody PostDTO updatedPost);
 
-    @DeleteMapping("/posts//delete/{id}")
+    @DeleteMapping("/posts/delete/{id}")
     void deletePost(@PathVariable Long id);
 
 
@@ -48,7 +48,7 @@ public interface ProductAPI {
     CommentDTO getCommentId(@PathVariable Long id);
 
     @PostMapping("/comments/addComment")
-    CommentDTO addComment(CommentDTO newPost);
+    CommentDTO addComment(CommentDTO newComment);
 
     @PutMapping("/comments/update/{id}")
     CommentDTO updateComment(@PathVariable Long id, @RequestBody CommentDTO updatedPost);
