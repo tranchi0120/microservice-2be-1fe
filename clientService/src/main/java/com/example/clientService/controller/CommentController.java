@@ -39,6 +39,7 @@ public class CommentController {
         CommentDTO commentForm = new CommentDTO();
         List<PostDTO> postFormList = postService.getAllPost();
         List<UserDTO> userFormList = userService.getAllUser();
+        System.out.println("userList:" +userFormList);
         model.addAttribute("commentForm", commentForm);
         model.addAttribute("postFormList", postFormList);
         model.addAttribute("userFormList", userFormList);

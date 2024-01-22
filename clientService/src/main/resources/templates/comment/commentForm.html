@@ -67,7 +67,7 @@
                         <div class="form-group" th:if="${commentForm.id == null}">
                             <label for="selectUser">Select Post</label>
                             <select class="form-select selected" aria-label="Default select example" id="selectUser" required="required" th:field="*{user_id}">
-                                <option th:each="user : ${userFormList}" th:value="${user.id}" th:text="${user.id}">--- Select User ---</option>
+                                <option th:each="user : ${userFormList}" th:value="${user.id}" th:text="${user.username}">--- Select User ---</option>
                             </select>
                         </div>
                     </div>
