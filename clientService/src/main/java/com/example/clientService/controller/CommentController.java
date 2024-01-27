@@ -29,7 +29,6 @@ public class CommentController {
     @GetMapping("/listComment")
     public String listComment(Model model) {
         List<CommentDTO> comments = commentService.getAllComment();
-        System.out.println("comment: " +comments);
         model.addAttribute("comments", comments);
         return "comment/listComment";
     }
@@ -39,7 +38,6 @@ public class CommentController {
         CommentDTO commentForm = new CommentDTO();
         List<PostDTO> postFormList = postService.getAllPost();
         List<UserDTO> userFormList = userService.getAllUser();
-        System.out.println("userList:" +userFormList);
         model.addAttribute("commentForm", commentForm);
         model.addAttribute("postFormList", postFormList);
         model.addAttribute("userFormList", userFormList);

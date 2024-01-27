@@ -33,7 +33,6 @@ public class PostController {
     public String getPost(Model model) {
         PostDTO postForm = new PostDTO();
         List<UserDTO> userForm = userService.getAllUser();
-        System.out.println("userForm: "+userForm);
         model.addAttribute("postForm", postForm);
         model.addAttribute("userForm", userForm);
         return "post/postForm";
@@ -44,7 +43,6 @@ public class PostController {
                               Model model,
                               @ModelAttribute("userForm") UserDTO userForm) {
         postService.addPost(postForm);
-        System.out.println("userID:"+userForm);
         model.addAttribute("postForm", postForm);
         model.addAttribute("userForm", userForm);
         return "redirect:/product/listPost";
